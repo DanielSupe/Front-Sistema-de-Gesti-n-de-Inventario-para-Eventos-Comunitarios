@@ -6,6 +6,7 @@ import DynamicTable from './custom/Components/DynamicTable';
 import Modal from './custom/Components/Modal';
 import DynamicForm from './custom/Components/Form';
 import Swal from 'sweetalert2';
+import { HiOutlineCog } from 'react-icons/hi';
 
 function App() {
 
@@ -208,13 +209,23 @@ const onCreateLoan = (loan: any) => {
 
   return (
     <>
-    <div className="flex flex-col justify-center items-center p-4 w-[100vw] h-[100vh] bg-gray-100">
+    <header className="w-full h-[10vh] bg-white shadow p-4 flex items-center justify-center gap-2">
+      <HiOutlineCog className="text-blue-600 text-3xl" />
+      <h1 className="text-3xl font-bold text-gray-800">Inventory Management System for Community Events</h1>
+    </header>
+
+
+
+    <div className="flex flex-col justify-center items-center p-4 w-[100vw] h-[90vh] bg-gray-100">
       <div className='flex flex-col lg:flex-row justify-center items-center h-full w-full overflow-auto gap-4'>
         <div className='w-full max-h-[50%] lg:w-[50%] lg:h-[70%] overflow-auto flex flex-col justify-start items-start gap-4'>
 
-        <button id='addButtonItem' onClick={()=>{addButton()}} className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow-md transition cursor-pointer">
+    <div className='flex justify-center items-center w-full mb-4'>
+        <button id='addButtonItem' onClick={()=>{addButton()}} className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow-md transition cursor-pointer mr-4">
           Add Item
         </button>
+                <h1 className='text-2xl font-bold text-gray-800'>Inventory Management</h1>
+    </div>
 
           <DynamicTable
             data={inventoryList}
@@ -224,9 +235,13 @@ const onCreateLoan = (loan: any) => {
         </div>
 
         <div className='w-full max-h-[50%] lg:w-[50%] lg:h-[70%] overflow-auto flex flex-col justify-start items-end gap-4'>
-        <button id='addButtonItemLoad' onClick={()=>{addButtonLoan()}} className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow-md transition cursor-pointer">
+
+            <div className='flex justify-center items-center w-full mb-4'>
+                              <h1 className='text-2xl font-bold text-gray-800'>Loans</h1>
+        <button id='addButtonItemLoad' onClick={()=>{addButtonLoan()}} className="bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-6 rounded shadow-md transition cursor-pointer ml-4">
           Register loan
         </button>
+    </div>
           <DynamicTable
             data={loansList}
             columns={loanedColumns}
