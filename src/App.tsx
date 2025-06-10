@@ -94,9 +94,10 @@ const fields:any = [
     setInventoryList(inventory);
   }, [inventory]);
 
-    useEffect(() => {
-    setLoansList(loans);
-  }, [loans]);
+useEffect(() => {
+  const activeLoans = loans.filter((loan:any) => !loan.cancelled);
+  setLoansList(activeLoans);
+}, [loans]);
 
   useEffect(() => {
     dispatch<any>(fetchInventory())

@@ -115,7 +115,7 @@ export const deleteItemLoan = (id:any) => async (dispatch: AppDispatch) => {
   dispatch(getLoads());
 
   try {
-    await axios.delete(`${urlBack}/loans/${id}/cancel`);
+    await axios.put(`${urlBack}/loans/${id}/cancel`);
     Swal.fire('Success', 'The loan was delete successfully', 'success');
     dispatch(fetchInventory());
   } catch (err: any) {
